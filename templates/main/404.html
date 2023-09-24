@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You are lost !</title>
+    <link rel="stylesheet" href="/static/css/404.css">
+
+    <style>
+      @import url('https://fonts.googleapis.com/css?family=Nunito+Sans') ;
+:root {
+--blue : #0e0620;
+--white : #fff;
+--green : #2ccf6d;
+}
+html, body {
+height : 100%;
+}
+body {
+display : flex;
+align-items : center;
+justify-content : center;
+font-family : "Nunito Sans";
+color : var(--blue);
+font-size : 1em;
+}
+button {
+font-family : "Nunito Sans";
+}
+ul {
+list-style-type : none;
+padding-inline-start : 35px;
+}
+svg {
+width : 100%;
+visibility : hidden;
+}
+h1 {
+font-size : 7.5em;
+margin : 15px 0;
+font-weight : bold;
+}
+h2 {
+font-weight : bold;
+}
+.hamburger-menu {
+position : absolute;
+top : 0;
+left : 0;
+padding : 35px;
+z-index : 2;
+}
+nav {
+position : absolute;
+height : 100%;
+top : 0;
+left : 0;
+background : #2ccf6d;
+color : var(--blue);
+width : 300px;
+z-index : 1;
+padding-top : 80px;
+transform : translateX(-100%);
+transition : 0.24s cubic-bezier(0.52,0.01,0.8,1);
+}
+.btn {
+z-index : 1;
+overflow : hidden;
+background : transparent;
+position : relative;
+padding : 8px 50px;
+border-radius : 30px;
+cursor : pointer;
+font-size : 1em;
+letter-spacing : 2px;
+transition : 0.2s ease;
+font-weight : bold;
+margin : 5px 0;
+}
+@media screen and (max-width: 1000px) {
+body {
+display : block;
+}
+.container {
+margin-top : 70px;
+margin-bottom : 70px;
+padding-left: 36px;
+}
+}
+
+    </style>
+</head>
+
+<body>
+  <main>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 align-self-center">
+          <h1>404</h1>
+          <h2>UH OH! You're lost.</h2>
+          <p>The page you are looking for does not exist.
+            How you got here is a mystery. But you can click the button below
+            to go back to the homepage.
+          </p>
+          <a href="/"><button class="btn">HOME</button></a>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

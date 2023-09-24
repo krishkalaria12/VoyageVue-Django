@@ -1,0 +1,88 @@
+@media screen and (max-width: 1136px) {
+    .services {
+        display: grid !important;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(2,370px);
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(2,1fr) !important;
+    }
+}
+@media screen and (max-width:884px) {
+    .menu {
+        display: none !important;
+    }
+    .mobile {
+        display: block !important;
+        margin-right: 3rem;
+        font-size: 2rem;
+    }
+}
+@media screen and (max-width:552px) {
+    .footer {
+        display: grid !important;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(3,1fr);
+    }
+    .links {
+        margin-top: 1rem;
+    }
+    .services {
+        display: grid !important;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-rows: repeat(4,370px);
+    }
+    .about-img img{
+        max-width: 100% !important;
+        height: auto !important;
+        min-width: 200px !important;
+        width: 100% !important;
+    }
+    .about {
+        padding: 1rem !important;
+    }
+    .about-text {
+        padding: 0 1rem;
+        flex: auto;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+    }
+    .about-text p {
+        max-width: 500px !important;
+        width: auto !important;
+        text-align: center;
+        padding-left: 0.8rem !important;
+        padding-right: 0.8rem !important;
+    }
+    .about-text h2 {
+        font-size: 34px !important;
+        text-align: center;
+    }
+}
+@media screen and (max-width: 670px) {
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(1,1fr) !important;
+    }
+}
+@media screen and (max-width:776px) {
+    .form {
+        flex-direction: column !important;
+        gap: 0.8rem;
+    }
+    .banner-text-item input {
+        width: 100% !important;
+    }
+    .banner {
+        height: 150vh !important;
+    }
+    .banner-text-item .book  {
+        width: 80% !important;
+        margin-bottom: 12px;
+    }
+}

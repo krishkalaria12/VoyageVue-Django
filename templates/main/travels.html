@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travels | Flights | VoyageVue</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/Home CSS/mobile.css">
+    <link rel="stylesheet" href="/static/css/travels CSS/travels.css">
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""></script>
+
+     <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        #map{
+            height: 680px;
+        }
+        
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Mukta Malar', Arial;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    /* margin-top: 4rem; */
+    align-items: center;
+    background: url("/static/assets/travels.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.form-group > label {
+    font-size: 16px;
+}
+.form-group > input {
+    padding: 10px;
+    
+}
+#submitButton{
+    background: #fcd600;
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 1rem;
+    font-size: 18px;
+    text-transform: capitalize;
+    color: white;
+    border: 0;
+    font-weight: 600;
+}
+:root {
+
+--input-color: #43464d;
+--input-border: #CDD9ED;
+--input-background: #fff;
+--input-placeholder: #CBD1DC;
+
+--input-border-focus: #275EFE;
+
+--group-color: var(--input-color);
+--group-border: var(--input-border);
+--group-background: #EEF4FF;
+
+--group-color-focus: #fff;
+--group-border-focus: var(--input-border-focus);
+--group-background-focus: #678EFE;
+
+}
+
+.form-field {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    line-height: 25px;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: inherit;
+    border-radius: 6px;
+    color: var(--input-color);
+    border: 1px solid var(--input-border);
+    background: var(--input-background);
+    transition: border .3s ease;
+    &::placeholder {
+        color: var(--input-placeholder);
+    }
+    &:focus {
+        outline: none;
+        border-color: var(--input-border-focus);
+    }
+}
+
+.form-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 60%;
+    .form-field {
+        position: relative;
+        z-index: 1;
+        flex: 1 1 auto;
+        width: 1%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+     </style>
+</head>
+
+<body>
+    <section class="nav-bar" style="z-index: 1000;">
+        <div class="logo"><a href="/">VoyageVue</a></div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/travels">travels</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">logout</a></li>
+            {% else %}
+            <li><a href="/signin">SignIn</a></li>
+            <li><a href="/signup">Signup</a></li>
+            {% endif %}
+        </ul>
+        <div class="mobile">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        </div>
+
+    </section>
+
+    
+    <div class="form">
+        <h1 style="text-align: center; margin-top: 2rem ; font-size: 36px; font-family: 'Roboto', sans-serif; color: #CBD1DC;">Where Next : Let's Plan Your Journey</h1>
+        <div class="form-group">
+          <label for="email" style="color: #fff;">From: </label>
+          <input class="form-field" type="text" name="email" id="email" placeholder="Enter the Onboarding" required>
+        </div>
+        <div class="form-group">
+            <label for="pass" style="color: #fff;">To:</label>
+            <input class="form-field" type="text" name="pass" id="cityInput" placeholder="Enter the Destination" required>
+        </div>
+        <div class="form-group">
+          <label for="adults" style="color: #fff;">Adults:</label>
+          <input class="form-field" type="number" name="adults" id="adults" placeholder="Enter the number of adults" required>
+        </div>
+        <div class="form-group">
+          <label for="date" style="color: #fff;">Date:</label>
+          <input class="form-field" type="date" name="date" id="date" placeholder="Enter the date" required>
+        </div>
+        <button id="submitButton">Submit</button>
+        <div id="map" style="width: 90%; height: 500px; margin-bottom: 1rem;"></div>
+      </div>
+
+
+    <div class="footer" style="padding: 1rem;">
+        <div class="links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Offers & Discounts</li>
+                <li>Get Coupon</li>
+                <li>Contact Us</li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>New Packages</h3>
+            <ul>
+                <li>Nine sisters of east</li>
+                <li>Taj Mahal</li>
+                <li>Gate Way Of India</li>
+                <li>Hampi</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>Support</h3>
+            <ul>
+                <li>Frequently Asked Questions</li>
+                <li>Report a Payment Issue</li>
+                <li>Terms & Conditions</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+      // Add an event listener to the Submit button
+      document.getElementById("submitButton").addEventListener("click", function () {
+        // Get the user input from the text input field
+        const city = document.getElementById("cityInput").value;
+      
+        // Call the Geolocation function with the user's input
+        Geolocation(city);
+      });
+      
+      // Define the Geolocation function that accepts the city parameter
+      async function Geolocation(city) {
+        try {
+          // Use the user's input (city) to fetch geocoding data
+          const coordinates = await fetchGeocodingData(city);
+      
+          // Check if geocoding data was found
+          if (coordinates) {
+            const { lang, long } = coordinates;
+      
+            // Create or update the map with the new coordinates
+            updateMap(lang, long);
+          } else {
+            console.error("No coordinates found for the city.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+      
+      // Define a function to fetch geocoding data (replace with your API code)
+      async function fetchGeocodingData(city) {
+          const apiKey = "fBgrAqgdm7qdNqzztAtcEw==ot2fLHnh3p2n0xPF";
+          const url = `https://api.api-ninjas.com/v1/geocoding?city=${city}`;
+        
+          try {
+            const response = await fetch(url, {
+              method: "GET",
+              headers: {
+                "X-Api-Key": apiKey,
+                "Content-Type": "application/json",
+              },
+            });
+        
+            if (!response.ok) {
+              throw new Error(
+                `HTTP error! Status: ${response.status} ! Try Again Doing it ! `
+              );
+            }
+        
+            const result = await response.json();
+            if (result.length > 0) {
+              const obj = result[0]; // Assuming you want the first result
+              const lang = obj.latitude;
+              const long = obj.longitude;
+        
+              return { lang, long };
+            } else {
+              throw new Error("No geocoding data found for the city.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            throw error;
+          }
+        }
+        
+      
+      // Define a function to update the map with new coordinates
+      function updateMap(lang, long) {
+        var map = L.map("map").setView([lang, long], 13);
+      
+        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+          maxZoom: 19,
+          attribution:
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+        }).addTo(map);
+      
+        var marker = L.marker([lang, long]).addTo(map);
+      }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+        // Add an event listener to the Submit button
+        document.getElementById("submitButton").addEventListener("click", function () {
+          // Get the user input from the text input field
+          const city = document.getElementById("cityInput").value;
+        
+          // Call the Geolocation function with the user's input
+          Geolocation(city);
+        });
+        
+        // Define the Geolocation function that accepts the city parameter
+        async function Geolocation(city) {
+          try {
+            // Use the user's input (city) to fetch geocoding data
+            const coordinates = await fetchGeocodingData(city);
+        
+            // Check if geocoding data was found
+            if (coordinates) {
+              const { lang, long } = coordinates;
+        
+              // Create or update the map with the new coordinates
+              updateMap(lang, long);
+            } else {
+              console.error("No coordinates found for the city.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+          }
+        }
+        
+        // Define a function to fetch geocoding data (replace with your API code)
+        async function fetchGeocodingData(city) {
+            const apiKey = "fBgrAqgdm7qdNqzztAtcEw==ot2fLHnh3p2n0xPF";
+            const url = `https://api.api-ninjas.com/v1/geocoding?city=${city}`;
+          
+            try {
+              const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                  "X-Api-Key": apiKey,
+                  "Content-Type": "application/json",
+                },
+              });
+          
+              if (!response.ok) {
+                throw new Error(
+                  `HTTP error! Status: ${response.status} ! Try Again Doing it ! `
+                );
+              }
+          
+              const result = await response.json();
+              if (result.length > 0) {
+                const obj = result[0]; // Assuming you want the first result
+                const lang = obj.latitude;
+                const long = obj.longitude;
+          
+                return { lang, long };
+              } else {
+                throw new Error("No geocoding data found for the city.");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              throw error;
+            }
+          }
+          
+        
+        // Define a function to update the map with new coordinates
+        function updateMap(lang, long) {
+          var map = L.map("map").setView([lang, long], 13);
+        
+          L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution:
+              '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+          }).addTo(map);
+        
+          var marker = L.marker([lang, long]).addTo(map);
+        }
+    </script>
+</body>
+</html>

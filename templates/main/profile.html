@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | VoyageVue</title>
+    <link rel="stylesheet" href="/static/css/profile/profile.css">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="shortcut icon" href="/static/assets/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/Home CSS/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/3.6.95/css/materialdesignicons.css">
+</head>
+
+<body>
+
+    <section class="nav-bar">
+        <div class="logo"><a href="/">VoyageVue</a></div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/travels">tours</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">logout</a></li>
+            {% else %}
+            <li><a href="/signin">SignIn</a></li>
+            <li><a href="/signup">Signup</a></li>
+            {% endif %}
+        </ul>
+        <div class="mobile">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        </div>
+
+    </section>
+
+
+    <div class="page-content page-container" id="page-content">
+        <div class="padding">
+            <div class="row container d-flex justify-content-center">
+                <div class="col-xl-6 col-md-12">
+                    <div class="card user-card-full">
+                        <div class="row m-l-0 m-r-0">
+                            <div class="col-sm-4 bg-c-lite-green user-profile">
+                                <div class="card-block text-center text-white">
+                                    <div class="m-b-25">
+                                        <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
+                                            alt="User-Profile-Image">
+                                    </div>
+                                    <h6 class="f-w-600">{{user.username}}</h6>
+                                </div>
+                            </div>
+                            <div class="col-sm-8">
+                                <div class="card-block">
+                                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Username</p>
+                                            <h6 class="text-muted font-styling">{{user.username}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">First Name</p>
+                                            <h6 class="text-muted font-styling">{{user.first_name}}</h6>
+                                        </div>
+                                    </div>
+                                    <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Additional Information</h6>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Last Name</p>
+                                            <h6 class="text-muted font-styling">{{user.last_name}}</h6>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="m-b-10 f-w-600">Email Address</p>
+                                            <h6 class="text-muted font-styling">{{user.email}}</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+      <div class="links">
+          <h3>Quick Links</h3>
+          <ul>
+              <li>Offers & Discounts</li>
+              <li>Get Coupon</li>
+              <li>Contact Us</li>
+              <li>About</li>
+          </ul>
+      </div>
+      <div class="links">
+          <h3>New Packages</h3>
+          <ul>
+              <li>Nine sisters of east</li>
+              <li>Taj Mahal</li>
+              <li>Gate Way Of India</li>
+              <li>Hampi</li>
+          </ul>
+      </div>
+      <div class="links">
+          <h3>Support</h3>
+          <ul>
+              <li>Frequently Asked Questions</li>
+              <li>Report a Payment Issue</li>
+              <li>Terms & Conditions</li>
+              <li>Privacy Policy</li>
+          </ul>
+      </div>
+  </div>
+
+   
+
+    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+  </script>
+  <script src="/static/js/home-js/index1.js"></script>
+  <script src="/static/js/home-js/index2.js"></script>
+  <script src="/static/js/home-js/index7.js"></script>
+  <script>
+    eval(mod_pagespeed_5SrcSFdP9s);
+  </script>
+  <script>
+    eval(mod_pagespeed_RAlAPbgzdt);
+  </script>
+  <script>
+    eval(mod_pagespeed_JVCt6U$RWm);
+  </script>
+  <script src="/static/js/home-js/index3.js"></script>
+  <script>
+    eval(mod_pagespeed_7XiCDaqz9Y);
+  </script>
+  <script>
+    eval(mod_pagespeed_qtaEnRCGUU);
+  </script>
+  <script>
+    eval(mod_pagespeed_egycAaX858);
+  </script>
+  <script>
+    eval(mod_pagespeed_1w3YMRmVOW);
+  </script>
+  <script src="/static/js/home-js/index4.js"></script>
+  <script>
+    eval(mod_pagespeed_2G2dGCLM1F);
+  </script>
+  <script>
+    eval(mod_pagespeed_eJbcNidVmq);
+  </script>
+  <script>
+    eval(mod_pagespeed_mRrQR8Wtnp);
+  </script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+  <script src="/static/js/home-js/index5.js"></script>
+  <!-- <script src="/static/js/home-js/index6.js"></script>  -->
+  <!-- navbar JavaScript is for index6 -->
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+  </script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+    integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+    data-cf-beacon='{"rayId":"6f8ac1737cf19380","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}'
+    crossorigin="anonymous"></script>
+    
+</body>
+
+</html>

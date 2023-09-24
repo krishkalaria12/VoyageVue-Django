@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/Home CSS/style.css">
+    <link rel="stylesheet" href="/static/css/Home CSS/mobile.css">
+    <link rel="stylesheet" href="/static/css/Blog CSS/blog.css">
+    <title>Blog | User Approved , User Verified</title>
+</head>
+<body>
+    <section class="nav-bar">
+        <div class="logo"><a href="/">VoyageVue</a></div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/travels">travels</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">logout</a></li>
+            {% else %}
+            <li><a href="/signin">Sign In</a></li>
+            <li><a href="/signup">Sign Up</a></li>
+            {% endif %}
+        </ul>
+        <div class="mobile">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        </div>
+
+    </section>
+
+
+    <div class="contain" >
+        <div class="container">
+            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img src="/static/assets/pic1.avif" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/assets/pic2.avif" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="/static/assets/pic3.avif" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+              <h1 class="title">A Voyage to be remembered</h1>
+              <div>
+
+              </div>
+              <p class="blog">My visit to the Taj Mahal was an experience beyond words. As I approached this majestic monument, its sheer grandeur took my breath away. The iconic white marble structure stood tall against the azure sky, radiating a timeless beauty that seemed to defy the ravages of time. <br>
+
+                Entering the complex, I was overwhelmed by the intricate details of the Taj Mahal's architecture. The delicate carvings, the symmetrical gardens, and the serene reflective pool all contributed to the enchantment of this place. I couldn't help but reflect on the profound love story behind its creation—a monument built as a tribute to eternal love. <br>
+                
+                Standing before the main mausoleum, I was moved by its pristine whiteness, glowing softly in the sunlight. I marveled at how the changing hues of the marble throughout the day mirrored the many facets of love—ever-changing yet enduring. The quietude of the Taj Mahal and the gentle whispers of history transported me to a different era. <br>
+                
+                My visit to the Taj Mahal was more than just a sightseeing excursion; it felt like a spiritual journey. I left with an overwhelming sense of awe and a deep appreciation for the unparalleled beauty and the enduring love that this majestic monument symbolizes. The memory of that visit remains etched in my heart, a testament to the timeless allure of the Taj Mahal.</p>
+
+
+                
+        </div>
+        <section class="places">
+            
+
+            <div class="cards" style="grid-template-rows: repeat(1,1fr); margin-bottom: 1rem;">
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/mysorepalace.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Mysore Palace</h2>
+                        <p> Visiting the Mysore Palace felt like stepping into a fairy tale. The intricate details and vibrant colors left me in awe. It's a must-see when in Mysore!
+                        </p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <P>READ MORE</P>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/taj.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Taj Mahal</h2>
+                        <p> The Taj Mahal is a true testament to eternal love. Seeing it up close took my breath away; it's even more beautiful than in pictures. A bucket list item, for sure!
+                    </p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <P>READ MORE</P>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/redfort.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Red Fort</h2>
+                        <p>Exploring the Red Fort was like a journey back in time. The grandeur of the architecture and the historical significance made me feel deeply connected to India's past. An unforgettable experience!</p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <p>READ MORE</p>
+                        </div>
+                    </div>
+            </div>
+        </section>
+    
+
+
+
+    <div class="footer">
+        <div class="links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Offers & Discounts</li>
+                <li>Get Coupon</li>
+                <li>Contact Us</li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>New Packages</h3>
+            <ul>
+                <li>Nine sisters of east</li>
+                <li>Taj Mahal</li>
+                <li>Gate Way Of India</li>
+                <li>Hampi</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>Support</h3>
+            <ul>
+                <li>Frequently Asked Questions</li>
+                <li>Report a Payment Issue</li>
+                <li>Terms & Conditions</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
+</html>

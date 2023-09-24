@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/sign_pages_css/sign_in.css">
+    <link rel="stylesheet" href="/static/css/sign_pages_css/sign_in/owl.carousel.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/static/css/sign_pages_css/sign_in/bootstrap.min.css">
+    <!-- Style -->
+    <link rel="stylesheet" href="/static/css/sign_pages_css/sign_in/style.css">
+    <link href="//fonts.googleapis.com/css?family=Quattrocento+Sans:400,400i,700,700i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Mukta:200,300,400,500,600,700,800" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/Home CSS/mobile.css">
+    <link rel="shortcut icon" href="/static/assets/favicon.svg" type="image/x-icon">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
+    <title>Login | Access Your Account</title>
+    <style>
+        @media (min-width: 768px){
+            .order-md-2 {
+                margin: auto;
+                margin-top: 62px;
+            }
+        }
+    </style>
+    <script nonce="486f0d3d-7ee2-4cc0-8da8-966530eeed75">
+        (function (w, d) {
+            ! function (a, e, t, r) {
+                a.zarazData = a.zarazData || {}, a.zarazData.executed = [], a.zarazData.tracks = [], a.zaraz = {
+                    deferred: []
+                }, a.zaraz.track = (e, t) => {
+                    for (key in a.zarazData.tracks.push(e), t) a.zarazData["z_" + key] = t[key]
+                }, a.zaraz._preSet = [], a.zaraz.set = (e, t, r) => {
+                    a.zarazData["z_" + e] = t, a.zaraz._preSet.push([e, t, r])
+                }, a.addEventListener("DOMContentLoaded", (() => {
+                    var t = e.getElementsByTagName(r)[0],
+                        z = e.createElement(r),
+                        n = e.getElementsByTagName("title")[0];
+                    n && (a.zarazData.t = e.getElementsByTagName("title")[0].text), a.zarazData.w = a
+                        .screen.width, a.zarazData.h = a.screen.height, a.zarazData.j = a.innerHeight, a
+                        .zarazData.e = a.innerWidth, a.zarazData.l = a.location.href, a.zarazData.r = e
+                        .referrer, a.zarazData.k = a.screen.colorDepth, a.zarazData.n = e.characterSet,
+                        a.zarazData.o = (new Date).getTimezoneOffset(), z.defer = !0, z.src =
+                        "/cdn-cgi/zaraz/s.js?z=" + btoa(encodeURIComponent(JSON.stringify(a
+                            .zarazData))), t.parentNode.insertBefore(z, t)
+                }))
+            }(w, d, 0, "script");
+        })(window, document);
+    </script>
+</head>
+
+<body>
+
+    {% if msg %}
+
+    <script>
+        alert("{{msg}}");
+    </script>
+
+    {% endif %}
+
+    {% if logsign %}
+
+    <script>
+        alert("{{logsign}}");
+    </script>
+
+    {% endif %}
+
+    <!--===========Nav Bar=================-->
+    <section class="nav-bar">
+        <div class="logo"><a href="/">VoyageVue</a></div>
+        <ul class="menu">
+            <li><a href="/">Home</a></li>
+            <li><a href="/travels">travels</a></li>
+            <li><a href="/contact">Contact</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/logout">logout</a></li>
+            {% else %}
+            <li><a href="/signin">SignIn</a></li>
+            <li><a href="/signup">Signup</a></li>
+            {% endif %}
+        </ul>
+        <div class="mobile">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+        </div>
+
+    </section>
+
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Hey User!!</strong> Enter the Details to log into the website and enjoy the Best of the Website !!!.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 order-md-2">
+                    <img src="/static/assets/login.svg" alt="Image" class="img-fluid">
+                </div>
+                <div class="col-md-6 contents">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="mb-4">
+                                <h3>Sign In to <strong>Voyage Vue</strong></h3>
+                                <p class="mb-4" style="font-weight: 600;">Sign in to the website and experience an
+                                    different happy world and explore all the features.</p>
+                            </div>
+                            <form action="/signin" method="post">
+                                {% csrf_token %}
+                                <div class="form-group first">
+                                    <label for="username" style="color:#252121">Username</label>
+                                    <input type="text" class="form-control" id="username" name="uname" required>
+
+                                </div>
+                                <div class="form-group last mb-4">
+                                    <label for="password" style="color:#252121">Password</label>
+                                    <input type="password" class="form-control" name="password" id="passw" required>
+                                </div>
+
+                                <div class="d-flex mb-5 align-items-center">
+                                    <label class="control control--checkbox mb-0"><span class="caption">Remember
+                                            me</span>
+                                        <input type="checkbox" checked="checked" />
+                                        <div class="control__indicator"></div>
+                                    </label>
+                                    <span class="ml-auto"><a href="/signup" style="color:#252121"
+                                            class="forgot-pass">Sign Up</a></span>
+                                </div>
+                                <input type="submit" value="Log In" class="btn text-white btn-block btn-primary" style="background-color: #ffc342; border-color: #ffc342; font-weight: 600;">
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li>Offers & Discounts</li>
+                <li>Get Coupon</li>
+                <li>Contact Us</li>
+                <li>About</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>New Packages</h3>
+            <ul>
+                <li>Nine sisters of east</li>
+                <li>Taj Mahal</li>
+                <li>Gate Way Of India</li>
+                <li>Hampi</li>
+            </ul>
+        </div>
+        <div class="links">
+            <h3>Support</h3>
+            <ul>
+                <li>Frequently Asked Questions</li>
+                <li>Report a Payment Issue</li>
+                <li>Terms & Conditions</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="/static/js/home-js/index1.js"></script>
+
+    <script src="/static/js/sign-js/bootstrap.min.js"></script>
+    <script src="/static/js/sign-js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/sign-js/main.js"></script>
+    <script src="/static/js/sign-js/popper.min.js"></script>
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+
+    <script src="js/popper.min.js+bootstrap.min.js+main.js.pagespeed.jc.9rL6_qf-nt.js"></script>
+    <script>
+        eval(mod_pagespeed_$$cYUBAGVu);
+    </script>
+    <script>
+        eval(mod_pagespeed_MR4O_w3mta);
+    </script>
+    <script>
+        eval(mod_pagespeed_DPOuBfjpPE);
+    </script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+        integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
+        data-cf-beacon='{"rayId":"6f90ec093d329362","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}'
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

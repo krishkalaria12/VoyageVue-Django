@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/css/Home CSS/style.css" />
+    <link rel="shortcut icon" href="/static/assets/favicon.svg" type="image/x-icon">
+    <link rel="stylesheet" href="/static/css/Home CSS/mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>VoyageVue</title>
+</head>
+
+<body>
+
+    {% if success %}
+
+    <script>
+        alert("{{success}}");
+        window.location="/"
+    </script>
+  
+  {% endif %}
+  
+  {% if sign %}
+  
+          <script>
+              alert("{{sign}}");
+              window.location="/"
+          </script>
+  
+      {% endif %}
+
+      <div class="chatbot-Div">
+        <button class="chatbot-toggler">
+            <span class="material-symbols-rounded"><i class="fa-solid fa-message" style="color: #fff; font-size: 24px;"></i></span>
+            <span class="material-symbols-outlined"><i class="fa-solid fa-message" style="color: #fff; font-size: 24px;"></i></span>
+          </button>
+          <div class="chatbot">
+            <header>
+              <h2>Chatbot</h2>
+              <span class="close-btn material-symbols-outlined">close</span>
+            </header>
+            <ul class="chatbox">
+              <li class="chat incoming">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <p>Hi there 👋<br>How can I help you today?</p>
+              </li>
+            </ul>
+            <div class="chat-input">
+              <textarea placeholder="Enter a message..." spellcheck="false" required></textarea>
+              <span id="send-btn" class="material-symbols-rounded">send</span>
+            </div>
+          </div>
+        </div>
+
+        <!--===========Nav Bar=================-->
+        <section class="nav-bar">
+            <div class="logo"><a href="/">VoyageVue</a></div>
+            <ul class="menu">
+                <li><a href="/">Home</a></li>
+                <li><a href="/travels">travels</a></li>
+                <li><a href="/contact">Contact</a></li>
+                {% if user.is_authenticated %}
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">logout</a></li>
+                {% else %}
+                <li><a href="/signin">Sign In</a></li>
+                <li><a href="/signup">Sign Up</a></li>
+                {% endif %}
+            </ul>
+            <div class="mobile">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+            </div>
+
+        </section>
+        <!--===============Banner================-->
+        <section class="banner">
+            <div class="banner-text-item">
+                <div class="banner-heading" style="margin-bottom: 1rem;">
+                    <h1>Explore curated travel experiences!</h1>
+                    <span id="element" style="color: #ece49f; font-size: 48px; margin-bottom: 1.5rem;font-family: 'Roboto', sans-serif; margin-bottom: 1rem;"></span>
+                </div>
+                <form class="form">
+                    {% comment %} <input type="text" list="mylist" placeholder="Where would you like to go?">
+                    <datalist id="mylist">
+                        <option>Karnatak</option>
+                        <option>Delhi</option>
+                        <option>Punjab</option>
+                        <option>Jammu Kashmir</option>
+                        <option>Srinagar</option>
+                        <option>Assam</option>
+                        <option>Rajasthan</option>
+                    </datalist>
+                    <input type="date" class="date"> {% endcomment %}
+                    <a href="/travels" class="book">book your adventure in India</a>
+                </form>
+            </div>
+        </section>
+
+        <!--=========Services===============-->
+        <section class="services">
+            <div class="service-item">
+                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293634/tour-guide_onzla9.png">
+                <h2>8000+ Our Local Guides</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293738/reliability_jbpn4g.png">
+                <h2>100% Trusted Tour Agency</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293635/experience_a3fduk.png">
+                <h2>28+ Years of Travel Experience</h2>
+            </div>
+            <div class="service-item">
+                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293634/feedback_s8z7d9.png">
+                <h2>98% Our Travelers are Happy</h2>
+            </div>
+        </section>
+        <!--==============Places===================-->
+        <section class="places">
+            <div class="places-text">
+                <small>FEATURED TOURS PACKAGES</small>
+                <h2>Favourite Places</h2>
+            </div>
+
+            <div class="cards">
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/mysorepalace.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Mysore Palace</h2>
+                        <p class="cost">र5000 / Per Person</p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈ Karnatak, India</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/taj.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Taj Mahal</h2>
+                        <p class="cost">र5000 / Per Person</p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈ Delhi</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/redfort.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Red Fort</h2>
+                        <p class="cost">र5000 / Per Person</p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈ Delhi</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/goldenpalace.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Golden Temple</h2>
+                        <p class="cost">र5000 / Per Person</p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈ Punjab, India</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/gatewayofindia.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Gate Way Of India</h2>
+                        <p class="cost">र5000 / Per Person</p>
+                        <div class="card-box" style="cursor:pointer;">
+                            <p class="time">🕓 3 Days</p>
+                            <p class="location">✈ Delhi</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card">
+                    <div class="zoom-img">
+                        <div class="img-card">
+                            <img src="/static/assets/hampi.avif">
+                        </div>
+                    </div>
+
+                    <div class="text">
+                        <!-- <span class="rating">⭐⭐⭐⭐⭐</span> -->
+                        <h2>Hampi</h2>
+                        <p class="cost">र5000 / Per Person</p>
+                        <div class="card-box" style="cursor:pointer;">  
+                            <p class="time" >🕓 3 Days</p>
+                            <p class="location">✈ Karnataka, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--===========About Us===============-->
+        <section class="about">
+            <div class="about-img">
+                <img src="https://res.cloudinary.com/dxssqb6l8/image/upload/v1605293719/outdoor_tjjhxk.jpg">
+            </div>
+            
+                <div class="about-text" >
+                <small>FEATURING</small>
+                <h2>TRAVELLER OF THE MONTH</h2>
+                <p>Introducing our Traveler of the Month! Meet Nikhil, a passionate adventurer whose journeys inspire us
+                    all. From exotic landscapes to hidden gems, join us as we delve into Nikhil's incredible travel
+                    experiences and valuable tips for your next adventure. Explore the world through their lens!</p>
+
+                <p>My visit to the Taj Mahal was an experience beyond words. As I approached....</p>
+                <a href="/blog">READ MORE</a>
+            </div>
+        </section>
+
+        <!--===========Footer=================-->
+        <div class="footer">
+            <div class="links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li>Offers & Discounts</li>
+                    <li>Get Coupon</li>
+                    <li>Contact Us</li>
+                    <li>About</li>
+                </ul>
+            </div>
+            <div class="links">
+                <h3>New Packages</h3>
+                <ul>
+                    <li>Nine sisters of east</li>
+                    <li>Taj Mahal</li>
+                    <li>Gate Way Of India</li>
+                    <li>Hampi</li>
+                </ul>
+            </div>
+            <div class="links">
+                <h3>Support</h3>
+                <ul>
+                    <li>Frequently Asked Questions</li>
+                    <li>Report a Payment Issue</li>
+                    <li>Terms & Conditions</li>
+                    <li>Privacy Policy</li>
+                </ul>
+            </div>
+        </div>
+
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        <script src="/static/js/chatbot-js/chatbot.js"></script>
+        <script>
+            var typed = new Typed('#element', {
+                strings: ['Family Vacation', 'Solo Adventure' , 'Spiritual and Wellness Travel' , 'Road Trips' , 'Romantic Getaway'],
+                typeSpeed: 50,
+            });
+        </script>
+    </body>
+</html>
+
